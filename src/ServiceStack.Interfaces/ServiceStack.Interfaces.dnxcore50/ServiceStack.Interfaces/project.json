@@ -1,0 +1,54 @@
+{
+  "version": "4.1.0",
+  "description": "ServiceStack.Interfaces NetCore",
+  "authors": [ "jeremymeng" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "configurations": {
+    "Debug": {
+      "compilationOptions": {
+        "define": [ "DEBUG", "TRACE", "DNXCORE50" ]
+      }
+    },
+    "Release": {
+      "compilationOptions": {
+        "define": [ "RELEASE", "TRACE", "DNXCORE50" ],
+        "optimize": true
+      }
+    }
+  },
+
+  "dependencies": {
+  },
+
+  "compile": [
+    "../../**/*.cs"
+  ],
+
+  "frameworks": {
+    "dnxcore50": {
+      "dependencies": {
+        "System.ComponentModel": "4.0.1-beta-*",
+        "System.Console": "4.0.0-beta-*",
+        "System.Data.Common": "4.0.1-beta-*",
+        "System.Data.SqlClient": "4.0.0-beta-*",
+        "System.IO": "4.0.10",
+        "System.Linq": "4.0.0",
+        "System.Linq.Expressions": "4.0.10",
+        "System.Net.NameResolution": "4.0.0-beta-*",
+        "System.Net.Sockets": "4.0.0",
+        "System.Private.Networking": "4.0.0",
+        "System.Reflection": "4.1.0-beta-*",
+        "System.Reflection.Extensions": "4.0.1-beta-*",
+        "System.Reflection.TypeExtensions": "4.0.1-beta-*",
+        "System.Runtime.Serialization.Xml": "4.0.10",
+        "System.Threading": "4.0.10",
+        "System.Threading.Thread": "4.0.0-beta-*",
+        "System.Threading.ThreadPool": "4.0.10-beta-*",
+        "System.Xml.XDocument": "4.0.10"
+      }
+    }
+  }
+}
