@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+#if DNXCORE50
+using System.Linq;
+#endif
 
 namespace ServiceStack
 {
