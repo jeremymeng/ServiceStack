@@ -34,7 +34,11 @@ namespace ServiceStack.Reflection
             return x => typedGetPropertyFn.InvokeMethod(x);
 #else
 
+#if !DNXCORE50
             var typedMi = typedGetPropertyFn.Method;
+#else
+            var typedMi = typedGetPropertyFn.GetMethodInfo();
+#endif
             var paramFunc = Expression.Parameter(typeof(object), "oFunc");
             var expr = Expression.Lambda<Func<TEntity, object>>(
                     Expression.Convert(
@@ -84,7 +88,11 @@ namespace ServiceStack.Reflection
             return (x, y) => typedSetPropertyFn.InvokeMethod(x, new[] { y });
 #else
 
+#if !DNXCORE50
             var typedMi = typedSetPropertyFn.Method;
+#else
+            var typedMi = typedSetPropertyFn.GetMethodInfo();
+#endif
             var paramFunc = Expression.Parameter(typeof(object), "oFunc");
             var paramValue = Expression.Parameter(typeof(object), "oValue");
             var expr = Expression.Lambda<Action<TEntity, object>>(

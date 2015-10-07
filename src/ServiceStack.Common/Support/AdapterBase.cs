@@ -1,5 +1,8 @@
 using System;
 using ServiceStack.Logging;
+#if DNXCORE50
+using System.Reflection;
+#endif
 
 namespace ServiceStack.Support
 {
@@ -20,21 +23,39 @@ namespace ServiceStack.Support
         {
             DateTime before = DateTime.UtcNow;
 #if !NETFX_CORE && !WP
-            this.Log.DebugFormat("Executing action '{0}'", action.Method.Name);
+            this.Log.DebugFormat("Executing action '{0}'",
+#if !DNXCORE50
+                action.Method.Name
+#else
+                action.GetMethodInfo().Name
+#endif
+            );
 #endif
             try
             {
                 T result = action();
                 TimeSpan timeTaken = DateTime.UtcNow - before;
 #if !NETFX_CORE && !WP
-                this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.", action.Method.Name, timeTaken.TotalMilliseconds);
+                this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.",
+#if !DNXCORE50
+                    action.Method.Name,
+#else
+                    action.GetMethodInfo().Name,
+#endif
+                    timeTaken.TotalMilliseconds);
 #endif
                 return result;
             }
             catch (Exception ex)
             {
 #if !NETFX_CORE && !WP
-                this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}", action.Method.Name, ex.Message);
+                this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}",
+#if !DNXCORE50
+                    action.Method.Name,
+#else
+                    action.GetMethodInfo().Name,
+#endif
+                    ex.Message);
 #endif
                 throw;
             }
@@ -48,20 +69,38 @@ namespace ServiceStack.Support
         {
             DateTime before = DateTime.UtcNow;
 #if !NETFX_CORE && !WP
-            this.Log.DebugFormat("Executing action '{0}'", action.Method.Name);
+            this.Log.DebugFormat("Executing action '{0}'",
+#if !DNXCORE50
+                    action.Method.Name
+#else
+                    action.GetMethodInfo().Name
+#endif
+                );
 #endif
             try
             {
                 action();
                 TimeSpan timeTaken = DateTime.UtcNow - before;
 #if !NETFX_CORE && !WP
-                this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.", action.Method.Name, timeTaken.TotalMilliseconds);
+                this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.",
+#if !DNXCORE50
+                    action.Method.Name,
+#else
+                    action.GetMethodInfo().Name,
+#endif
+                    timeTaken.TotalMilliseconds);
 #endif
             }
             catch (Exception ex)
             {
 #if !NETFX_CORE && !WP
-                this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}", action.Method.Name, ex.Message);
+                this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}",
+#if !DNXCORE50
+                    action.Method.Name,
+#else
+                    action.GetMethodInfo().Name,
+#endif
+                    ex.Message);
 #endif
                 throw;
             }

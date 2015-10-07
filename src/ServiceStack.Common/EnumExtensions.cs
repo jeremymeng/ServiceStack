@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+#if DNXCORE50
+using System.Reflection;
+#endif
 
 namespace ServiceStack
 {
@@ -19,7 +22,7 @@ namespace ServiceStack
         /// </summary>
         /// <param name="enum"></param>
         /// <returns></returns>
-#if !NETFX_CORE
+#if !NETFX_CORE && !DNXCORE50
         public static string ToDescription(this Enum @enum)
         {
             var type = @enum.GetType();
@@ -48,7 +51,7 @@ namespace ServiceStack
 
         public static TypeCode GetTypeCode(this Enum @enum)
         {
-            return Type.GetTypeCode(Enum.GetUnderlyingType(@enum.GetType()));
+            return TypeExtensions.GetTypeCode(Enum.GetUnderlyingType(@enum.GetType()));
         }
 
         public static bool Has<T>(this Enum @enum, T value)
