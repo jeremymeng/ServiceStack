@@ -18,18 +18,6 @@ namespace ServiceStack
             return refTypes.ToArray();
         }
 
-#if !DNXCORE50
-        /// <summary>
-        /// Just pass through for Desktop .Net Framework.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Type GetTypeInfo(this Type type)
-        {
-            return type;
-        }
-#endif
-
         public static void AddReferencedTypes(Type type, HashSet<Type> refTypes)
         {
             if (type.GetTypeInfo().BaseType != null)
