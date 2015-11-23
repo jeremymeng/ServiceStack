@@ -56,7 +56,7 @@ namespace ServiceStack
             return WaitAll(waitHandles.ToArray(), (int)timeout.TotalMilliseconds);
         }
 
-#if !SL5 && !IOS && !XBOX && !DNXCORE50
+#if !SL5 && !IOS && !XBOX
         public static bool WaitAll(this List<IAsyncResult> asyncResults, TimeSpan timeout)
         {
             var waitHandles = asyncResults.ConvertAll(x => x.AsyncWaitHandle);
@@ -67,7 +67,7 @@ namespace ServiceStack
         {
             return WaitAll(waitHandles, (int)timeout.TotalMilliseconds);
         }
-
+#if !DNXCORE50
         public static bool WaitAll(WaitHandle[] waitHandles, int timeOutMs)
         {
             // throws an exception if there are no wait handles
@@ -90,7 +90,8 @@ namespace ServiceStack
             return WaitHandle.WaitAll(waitHandles, timeOutMs, false);
         }
 #endif
+#endif
 
-    }
+	}
 
 }
