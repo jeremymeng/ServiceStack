@@ -62,3 +62,6 @@ src/ServiceStack/Properties/Resources.resources
 
 src/ServiceStack.userprefs
 *.xap
+
+project.lock.json
+launchSettings.json
