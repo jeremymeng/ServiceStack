@@ -1,5 +1,5 @@
 {
-  "version": "4.1.0-rc2",
+  "version": "4.1.0-rc2-24022",
   "description": "ServiceStack.Common .NET Core",
   "authors": [ "" ],
   "tags": [ "" ],
@@ -21,7 +21,7 @@
   },
 
   "dependencies": {
-    "NETStandard.Library": "1.5.0-rc2-*"
+    "NETStandard.Library": "1.5.0-rc2-24022"
   },
 
   "compile": [
@@ -31,25 +31,25 @@
   "frameworks": {
     "netstandard1.5": {
       "dependencies": {
-        "ServiceStack.Interfaces": "4.1.0-rc2",
-        "ServiceStack.Text": "4.1.0-rc2",
-        "System.ComponentModel": "4.0.1-rc2-*",
-        "System.Console": "4.0.0-rc2-*",
-        "System.Data.Common": "4.0.1-rc2-*",
-        "System.Data.SqlClient": "4.1.0-rc2-*",
-        "System.IO": "4.1.0-rc2-*",
-        "System.Linq": "4.1.0-rc2-*",
-        "System.Linq.Expressions": "4.0.11-rc2-*",
-        "System.Net.NameResolution": "4.0.0-rc2-*",
-        "System.Net.Sockets": "4.1.0-rc2-*",
-        "System.Reflection": "4.1.0-rc2-*",
-        "System.Reflection.Extensions": "4.0.1-rc2-*",
-        "System.Reflection.TypeExtensions": "4.1.0-rc2-*",
-        "System.Runtime.Serialization.Xml": "4.1.1-rc2-*",
-        "System.Threading": "4.0.11-rc2-*",
-        "System.Threading.Thread": "4.0.0-rc2-*",
-        "System.Threading.ThreadPool": "4.0.10-rc2-*",
-        "System.Xml.XDocument": "4.0.11-rc2-*"
+        "ServiceStack.Interfaces": "4.1.0-rc2-24022",
+        "ServiceStack.Text": "4.1.0-rc2-24022",
+        "System.ComponentModel": "4.0.1-rc2-24022",
+        "System.Console": "4.0.0-rc2-24022",
+        "System.Data.Common": "4.0.1-rc2-24022",
+        "System.Data.SqlClient": "4.1.0-rc2-24022",
+        "System.IO": "4.1.0-rc2-24022",
+        "System.Linq": "4.1.0-rc2-24022",
+        "System.Linq.Expressions": "4.0.11-rc2-24022",
+        "System.Net.NameResolution": "4.0.0-rc2-24022",
+        "System.Net.Sockets": "4.1.0-rc2-24022",
+        "System.Reflection": "4.1.0-rc2-24022",
+        "System.Reflection.Extensions": "4.0.1-rc2-24022",
+        "System.Reflection.TypeExtensions": "4.1.0-rc2-24022",
+        "System.Runtime.Serialization.Xml": "4.1.1-rc2-24022",
+        "System.Threading": "4.0.11-rc2-24022",
+        "System.Threading.Thread": "4.0.0-rc2-24022",
+        "System.Threading.ThreadPool": "4.0.10-rc2-24022",
+        "System.Xml.XDocument": "4.0.11-rc2-24022"
       }
     }
   }
