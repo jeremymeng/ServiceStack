@@ -11,9 +11,11 @@
 
   "buildOptions": {
     "define": [ "DNXCORE50" ],
-    "include": [
-      "../../ServiceStack.Common/**/*.cs"
-    ]
+    "compile": {
+      "include": [
+        "../../ServiceStack.Common/**/*.cs"
+      ]
+    }
   },
 
   "dependencies": {
