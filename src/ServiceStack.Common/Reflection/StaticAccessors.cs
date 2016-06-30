@@ -34,7 +34,7 @@ namespace ServiceStack.Reflection
             return x => typedGetPropertyFn.InvokeMethod(x);
 #else
 
-#if !DNXCORE50
+#if !NET_CORE
             var typedMi = typedGetPropertyFn.Method;
 #else
             var typedMi = typedGetPropertyFn.GetMethodInfo();
@@ -88,7 +88,7 @@ namespace ServiceStack.Reflection
             return (x, y) => typedSetPropertyFn.InvokeMethod(x, new[] { y });
 #else
 
-#if !DNXCORE50
+#if !NET_CORE
             var typedMi = typedSetPropertyFn.Method;
 #else
             var typedMi = typedSetPropertyFn.GetMethodInfo();

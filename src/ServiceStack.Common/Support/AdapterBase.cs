@@ -1,6 +1,6 @@
 using System;
 using ServiceStack.Logging;
-#if DNXCORE50
+#if NET_CORE
 using System.Reflection;
 #endif
 
@@ -24,7 +24,7 @@ namespace ServiceStack.Support
             DateTime before = DateTime.UtcNow;
 #if !NETFX_CORE && !WP
             this.Log.DebugFormat("Executing action '{0}'",
-#if !DNXCORE50
+#if !NET_CORE
                 action.Method.Name
 #else
                 action.GetMethodInfo().Name
@@ -37,7 +37,7 @@ namespace ServiceStack.Support
                 TimeSpan timeTaken = DateTime.UtcNow - before;
 #if !NETFX_CORE && !WP
                 this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.",
-#if !DNXCORE50
+#if !NET_CORE
                     action.Method.Name,
 #else
                     action.GetMethodInfo().Name,
@@ -50,7 +50,7 @@ namespace ServiceStack.Support
             {
 #if !NETFX_CORE && !WP
                 this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}",
-#if !DNXCORE50
+#if !NET_CORE
                     action.Method.Name,
 #else
                     action.GetMethodInfo().Name,
@@ -70,7 +70,7 @@ namespace ServiceStack.Support
             DateTime before = DateTime.UtcNow;
 #if !NETFX_CORE && !WP
             this.Log.DebugFormat("Executing action '{0}'",
-#if !DNXCORE50
+#if !NET_CORE
                     action.Method.Name
 #else
                     action.GetMethodInfo().Name
@@ -83,7 +83,7 @@ namespace ServiceStack.Support
                 TimeSpan timeTaken = DateTime.UtcNow - before;
 #if !NETFX_CORE && !WP
                 this.Log.DebugFormat("Action '{0}' executed. Took {1} ms.",
-#if !DNXCORE50
+#if !NET_CORE
                     action.Method.Name,
 #else
                     action.GetMethodInfo().Name,
@@ -95,7 +95,7 @@ namespace ServiceStack.Support
             {
 #if !NETFX_CORE && !WP
                 this.Log.ErrorFormat("There was an error executing Action '{0}'. Message: {1}",
-#if !DNXCORE50
+#if !NET_CORE
                     action.Method.Name,
 #else
                     action.GetMethodInfo().Name,

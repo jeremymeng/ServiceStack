@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-#if DNXCORE50
+#if NET_CORE
 using System.Linq;
 using System.Reflection;
 #endif
@@ -77,7 +77,7 @@ namespace ServiceStack
             }
         }
 
-#if DNXCORE50
+#if NET_CORE
         public static TypeCode GetTypeCode(Type type)
         {
             if (type == null) return TypeCode.Empty;

@@ -2,7 +2,7 @@
 //License: https://raw.github.com/ServiceStack/ServiceStack/master/license.txt
 
 #if !SL5 && !XBOX
-#if !DNXCORE50
+#if !NET_CORE
 using System.Data;
 #else
 using System.Data.Common;
@@ -10,7 +10,7 @@ using System.Data.Common;
 
 namespace ServiceStack.Data
 {
-#if !DNXCORE50
+#if !NET_CORE
     public interface IHasDbConnection
 	{
 		IDbConnection DbConnection { get; }

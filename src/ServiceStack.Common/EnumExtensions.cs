@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-#if DNXCORE50
+#if NET_CORE
 using System.Reflection;
 #endif
 
@@ -22,7 +22,7 @@ namespace ServiceStack
         /// </summary>
         /// <param name="enum"></param>
         /// <returns></returns>
-#if !NETFX_CORE && !DNXCORE50
+#if !NETFX_CORE && !NET_CORE
         public static string ToDescription(this Enum @enum)
         {
             var type = @enum.GetType();

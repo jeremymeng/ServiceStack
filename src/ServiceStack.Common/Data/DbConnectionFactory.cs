@@ -1,6 +1,6 @@
 ﻿#if !SL5
 using System;
-#if !DNXCORE50
+#if !NET_CORE
 using System.Data;
 #else
 using System.Data.Common;
@@ -8,7 +8,7 @@ using System.Data.Common;
 
 namespace ServiceStack.Data
 {
-#if !DNXCORE50
+#if !NET_CORE
     public class DbConnectionFactory : IDbConnectionFactory
     {
         private readonly Func<IDbConnection> connectionFactoryFn;

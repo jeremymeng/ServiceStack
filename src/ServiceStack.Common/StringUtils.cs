@@ -186,7 +186,7 @@ namespace ServiceStack
                     return match.Value; // ambiguous ampersand
                 }
             }
-#if !DNXCORE50
+#if !NET_CORE
             return ((char)decimalValue).ToString(CultureInfo.InvariantCulture);
 #else
             return ((char)decimalValue).ToString();
@@ -195,7 +195,7 @@ namespace ServiceStack
 
         public static string ToChar(this int codePoint)
         {
-#if !DNXCORE50
+#if !NET_CORE
             return Convert.ToChar(codePoint).ToString(CultureInfo.InvariantCulture);
 #else
             return Convert.ToChar(codePoint).ToString();

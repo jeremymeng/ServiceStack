@@ -67,7 +67,7 @@ namespace ServiceStack
         {
             return WaitAll(waitHandles, (int)timeout.TotalMilliseconds);
         }
-#if !DNXCORE50
+#if !NET_CORE
         public static bool WaitAll(WaitHandle[] waitHandles, int timeOutMs)
         {
             // throws an exception if there are no wait handles

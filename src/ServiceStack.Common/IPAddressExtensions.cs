@@ -113,7 +113,7 @@ namespace ServiceStack
 
             try
             {
-#if !SL5 && !DNXCORE50
+#if !SL5 && !NET_CORE
                 foreach (var ni in NetworkInterface.GetAllNetworkInterfaces())
                 {
                     foreach (var uipi in ni.GetIPProperties().UnicastAddresses)
@@ -143,7 +143,7 @@ namespace ServiceStack
 
             try
             {
-#if !SL5 && !DNXCORE50
+#if !SL5 && !NET_CORE
                 foreach (var ni in NetworkInterface.GetAllNetworkInterfaces())
                 {
                     foreach (var uipi in ni.GetIPProperties().UnicastAddresses)
