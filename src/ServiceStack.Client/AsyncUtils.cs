@@ -149,7 +149,7 @@ namespace ServiceStack
             return stream.WriteAsync(buffer, offset, count, CancellationToken.None);
         }
 
-#if !PCL
+#if !(PCL || NET_CORE)
         public static Task<int> ReadAsync(this Stream stream, byte[] buffer, int offset, int count, CancellationToken token)
         {
             return token.IsCancellationRequested

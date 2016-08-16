@@ -31,33 +31,57 @@ namespace ServiceStack
 
         public override INameValueCollection ParseQueryString(string query)
         {
+#if NET_CORE
+            return ServiceStack.Pcl.HttpUtility.ParseQueryString(query).InWrapper();
+#else
             return HttpUtility.ParseQueryString(query).InWrapper();
+#endif
         }
 
         public override string UrlEncode(string url)
         {
+#if NET_CORE
+            return System.Net.WebUtility.UrlEncode(url);
+#else
             return HttpUtility.UrlEncode(url);
+#endif
         }
 
         public override string UrlDecode(string url)
         {
+#if NET_CORE
+            return System.Net.WebUtility.UrlDecode(url);
+#else
             return HttpUtility.UrlDecode(url);
+#endif
         }
 
         public override string HtmlEncode(string html)
         {
+#if NET_CORE
+            return System.Net.WebUtility.HtmlEncode(html);
+#else
             return HttpUtility.HtmlEncode(html);
+#endif
         }
 
         public override string HtmlDecode(string html)
         {
+#if NET_CORE
+            return System.Net.WebUtility.HtmlDecode(html);
+#else
             return HttpUtility.HtmlDecode(html);
+#endif
         }
 
         public override string GetHeader(WebHeaderCollection headers, string name, Func<string, bool> valuePredicate)
         {
+#if !NET_CORE
             var values = headers.GetValues(name);
             return values == null ? null : values.FirstOrDefault(valuePredicate);
+#else
+            return headers[name];
+#endif
         }
 
         public override ITimer CreateTimer(TimerCallback cb, TimeSpan timeOut, object state)

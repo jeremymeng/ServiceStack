@@ -1,4 +1,4 @@
-#if !(SL5 || XBOX || ANDROID || __IOS__ || PCL)
+#if !(SL5 || XBOX || ANDROID || __IOS__ || PCL || NET_CORE)
 using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;

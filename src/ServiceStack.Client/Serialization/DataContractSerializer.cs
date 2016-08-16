@@ -45,7 +45,7 @@ XmlDictionaryReaderQuotas quotas = null
                 using (var ms = MemoryStreamFactory.GetStream())
                 {
                     var serializer = new System.Runtime.Serialization.DataContractSerializer(from.GetType());
-#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL)
+#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL || NET_CORE)
                     var xw = new XmlTextWriter(ms, Encoding); 
                     if (indentXml)
                     {
@@ -77,7 +77,7 @@ XmlDictionaryReaderQuotas quotas = null
 
         public void SerializeToStream(object obj, Stream stream)
         {
-#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL)
+#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL || NET_CORE)
             using (var xw = new XmlTextWriter(stream, Encoding))
             {
                 var serializer = new System.Runtime.Serialization.DataContractSerializer(obj.GetType());
@@ -89,7 +89,7 @@ XmlDictionaryReaderQuotas quotas = null
 #endif
         }
 
-#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL)
+#if !(SL5 || __IOS__ || XBOX || ANDROID || PCL || NET_CORE)
         public void CompressToStream<XmlDto>(XmlDto from, Stream stream)
         {
             using (var deflateStream = new System.IO.Compression.DeflateStream(stream, System.IO.Compression.CompressionMode.Compress))

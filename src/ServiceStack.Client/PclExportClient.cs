@@ -1637,7 +1637,7 @@ namespace ServiceStack
 
         public virtual INameValueCollection ParseQueryString(string query)
         {
-#if SL5 || PCL
+#if SL5 || PCL || NET_CORE
             return ServiceStack.Pcl.HttpUtility.ParseQueryString(query).InWrapper();
 #else
 			return System.Web.HttpUtility.ParseQueryString(query).InWrapper();
@@ -1650,6 +1650,8 @@ namespace ServiceStack
             return System.Windows.Browser.HttpUtility.UrlEncode(url);
 #elif PCL
             return WebUtility.UrlEncode(url);
+#elif NET_CORE
+            return System.Net.WebUtility.UrlEncode(url);
 #else
             return System.Web.HttpUtility.UrlEncode(url);
 #endif
@@ -1661,6 +1663,8 @@ namespace ServiceStack
             return System.Windows.Browser.HttpUtility.UrlDecode(url);
 #elif PCL
             return WebUtility.UrlDecode(url);
+#elif NET_CORE
+            return System.Net.WebUtility.UrlDecode(url);
 #else
             return System.Web.HttpUtility.UrlDecode(url);
 #endif
@@ -1672,6 +1676,8 @@ namespace ServiceStack
             return System.Windows.Browser.HttpUtility.HtmlEncode(html);
 #elif PCL
             return WebUtility.HtmlEncode(html);
+#elif NET_CORE
+            return System.Net.WebUtility.HtmlEncode(html);
 #else
             return System.Web.HttpUtility.HtmlEncode(html);
 #endif
@@ -1683,11 +1689,13 @@ namespace ServiceStack
             return System.Windows.Browser.HttpUtility.HtmlDecode(html);
 #elif PCL
             return WebUtility.HtmlDecode(html);
+#elif NET_CORE
+            return System.Net.WebUtility.HtmlDecode(html);
 #else
             return System.Web.HttpUtility.HtmlDecode(html);
 #endif
         }
- 
+
         public virtual void AddHeader(WebRequest webReq, INameValueCollection headers)
         {
             foreach (var name in headers.AllKeys)
@@ -1717,7 +1725,7 @@ namespace ServiceStack
 
         public virtual ITimer CreateTimer(TimerCallback cb, TimeSpan timeOut, object state)
         {
-#if PCL
+#if PCL || NET_CORE
             return new Timer(cb, state, (int)timeOut.TotalMilliseconds);
 #else
             return new AsyncTimer(new
@@ -1759,7 +1767,7 @@ namespace ServiceStack
         }
     }
 
-#if PCL
+#if PCL || NET_CORE
     public delegate void TimerCallback(object state);
 
     public sealed class Timer : CancellationTokenSource, ITimer, IDisposable

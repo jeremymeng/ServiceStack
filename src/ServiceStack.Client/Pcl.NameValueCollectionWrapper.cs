@@ -40,7 +40,7 @@ using ServiceStack.Pcl;
 using System.Collections.Specialized;
 #endif
 
-#if NETFX_CORE || ANDROID || __IOS__ || PCL || SL5
+#if NETFX_CORE || ANDROID || __IOS__ || PCL || SL5 || NET_CORE
 //namespace System.Collections.Specialized
 namespace ServiceStack.Pcl
 {

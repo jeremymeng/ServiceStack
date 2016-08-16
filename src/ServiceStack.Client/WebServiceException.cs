@@ -9,7 +9,7 @@ using ServiceStack.Text;
 
 namespace ServiceStack
 {
-#if !(NETFX_CORE || WP || SL5 || PCL)
+#if !(NETFX_CORE || WP || SL5 || PCL || NET_CORE)
     [Serializable]
 #endif
     public class WebServiceException
