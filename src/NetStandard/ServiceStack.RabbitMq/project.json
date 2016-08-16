@@ -1,0 +1,35 @@
+{
+  "version": "4.1.0-netcore",
+  "description": "ServiceStack.RabbitMq .NET Core",
+  "authors": [ "" ],
+
+  "packOptions": {
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": ""
+  },
+
+  "buildOptions": {
+    "define": [ "NET_CORE" ],
+    "compile": {
+      "include": [
+        "../../ServiceStack.RabbitMq/**/*.cs"
+      ]
+    }
+  },
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "RabbitMQ.Client": "4.0.0-rc-1"
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "dependencies": {
+        "ServiceStack.Common": "4.1.0-netcore",
+        "ServiceStack.Interfaces": "4.1.0-netcore",
+        "ServiceStack.Text": "4.1.0-netcore"
+      }
+    }
+  }
+}

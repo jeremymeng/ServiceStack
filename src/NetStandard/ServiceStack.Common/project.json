@@ -25,7 +25,7 @@
   "frameworks": {
     "netstandard1.5": {
       "dependencies": {
-        "ServiceStack.Interfaces": "4.1.0-netcore",
+        "ServiceStack.Interfaces": { "target": "project", "version": "" },
         "ServiceStack.Text": "4.1.0-netcore",
         "System.ComponentModel": "4.0.1",
         "System.Console": "4.0.0",

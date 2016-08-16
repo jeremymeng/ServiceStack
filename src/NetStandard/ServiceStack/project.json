@@ -1,0 +1,35 @@
+{
+  "version": "4.1.0-netcore",
+  "description": "ServiceStack .NET Core",
+  "authors": [ "" ],
+
+  "packOptions": {
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": ""
+  },
+
+  "buildOptions": {
+    "define": [ "NET_CORE" ],
+    "compile": {
+      "include": [
+        "../../ServiceStack/**/*.cs"
+      ]
+    }
+  },
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "System.Security.Principal.Windows": "4.0.0"
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "dependencies": {
+        "ServiceStack.Client": { "target": "project", "version": "" },
+        "ServiceStack.Common": { "target": "project", "version": "" },
+        "ServiceStack.Text": "4.1.0-netcore"
+      }
+    }
+  }
+}
